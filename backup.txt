@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portofolio - Muhammad Faisal Ashshidiq</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body class="bg-gray-100 text-gray-800 p-6">
+  <div class="max-w-4xl mx-auto bg-white shadow-xl rounded-xl p-6 fade-in" id="portfolio">
+    <header class="text-center mb-6">
+      <h1 class="text-3xl font-bold">Portofolio</h1>
+      <p class="text-lg">Muhammad Faisal Ashshidiq</p>
+    </header>
+
+    <div class="flex justify-center gap-4 mb-10">
+      <button id="projects-btn" onclick="switchSection('projects-section')" class="inactive-btn px-4 py-2 rounded-md transition-all">Projects</button>
+      <button id="certificates-btn" onclick="switchSection('certificates-section')" class="inactive-btn px-4 py-2 rounded-md transition-all">Certificates</button>
+      <button id="techstack-btn" onclick="switchSection('techstack-section')" class="inactive-btn px-4 py-2 rounded-md transition-all">Tech Stack</button>
+    </div>
+
+    <section id="projects-section" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-[#1e1e2f] text-white rounded-xl shadow-lg p-4">
+        <h3 class="text-lg font-semibold">Aritmatika Solver</h3>
+      </div>
+      <div class="bg-[#1e1e2f] text-white rounded-xl shadow-lg p-4">
+        <h3 class="text-lg font-semibold">AutoChat-Discord</h3>
+      </div>
+      <div class="bg-[#1e1e2f] text-white rounded-xl shadow-lg p-4">
+        <h3 class="text-lg font-semibold">Buku Catatan</h3>
+      </div>
+    </section>
+
+    <section id="certificates-section" class="hidden grid grid-cols-2 gap-4">
+      <img src="./assets/images/cert1.png" alt="Certificate 1" class="rounded-md border">
+      <img src="./assets/images/cert2.png" alt="Certificate 2" class="rounded-md border">
+    </section>
+
+    <section id="techstack-section" class="hidden">
+      <h2 class="text-xl font-semibold border-b mb-2">2. Keahlian Teknologi (Tech Stack)</h2>
+      <ul class="list-disc list-inside">
+        <li>Python, JavaScript, Go, SQL</li>
+        <li>HTML, CSS, Tailwind CSS, Bootstrap</li>
+        <li>Google Cloud Platform, Data Visualization</li>
+        <li>UI/UX Design, Canva, Figma</li>
+      </ul>
+    </section>
+
+    <section class="mt-10">
+      <h2 class="text-xl font-semibold border-b mb-2">3. Pengalaman Kerja/Internship</h2>
+      <div class="mb-4">
+        <h3 class="font-bold">Data Analytics / Data Engineer - PT. Ordivo Teknologi Indonesia, Agustus 2024 - Desember 2024 [Pembimbing Internal]</h3>
+        <p><strong>Deskripsi:</strong> Melakukan kurasi, analisis, riset, dan pengujian data menggunakan Python dan Google Cloud Platform (GCP).</p>
+        <p><strong>Pencapaian:</strong> Membantu visualisasi dan prediksi data serta optimisasi workflow data dalam sistem perusahaan.</p>
+        <p><strong>Keahlian:</strong> Python, GCP, Data Analytics, Machine Learning</p>
+      </div>
+      <div class="mb-4">
+        <h3 class="font-bold">Frontend Developer - PT Waditra Reka Cipta Bandung, Sep 2019 - Nov 2019 [Pembimbing Eksternal]</h3>
+        <p><strong>Deskripsi:</strong> Mengembangkan tampilan dashboard puskesmas menggunakan HTML, CSS, dan JavaScript.</p>
+        <p><strong>Pencapaian:</strong> Meningkatkan kualitas antarmuka pengguna dan berkontribusi dalam proses pengujian dan debugging.</p>
+        <p><strong>Keahlian:</strong> HTML, CSS, JavaScript, UI/UX</p>
+      </div>
+    </section>
+
+    <section class="mt-6">
+      <h2 class="text-xl font-semibold border-b mb-2">4. Usulan Pembimbing</h2>
+      <p><strong>Internship:</strong> Bapak Pembimbing Ordivo Teknologi Indonesia</p>
+      <p><strong>Tugas Akhir:</strong> Ibu Dosen Teknik Informatika ULBI</p>
+    </section>
+  </div>
+
+  <!-- Konten tersembunyi untuk PDF -->
+  <div id="pdf-content" class="hidden bg-white text-black p-6">
+    <h1 class="text-2xl font-bold text-center mb-4">Portofolio</h1>
+    <p class="text-center mb-6">Muhammad Faisal Ashshidiq</p>
+
+    <section class="mb-6">
+      <h2 class="text-xl font-semibold mb-2">1. Projects</h2>
+      <ul id="pdf-projects" class="list-disc list-inside"></ul>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-xl font-semibold mb-2">2. Certificates</h2>
+      <div id="pdf-certificates" class="grid grid-cols-2 gap-4"></div>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-xl font-semibold mb-2">3. Keahlian Teknologi (Tech Stack)</h2>
+      <ul class="list-disc list-inside">
+        <li>Python, JavaScript, Go, SQL</li>
+        <li>HTML, CSS, Tailwind CSS, Bootstrap</li>
+        <li>Google Cloud Platform, Data Visualization</li>
+        <li>UI/UX Design, Canva, Figma</li>
+      </ul>
+    </section>
+  </div>
+
+  <div class="text-center mt-6">
+    <button onclick="downloadPDF()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+      Download PDF
+    </button>
+  </div>
+<script src="./assets/js/main.js"></script>
+
+</body>
+</html>
+
+
+
+<!-- Projects Section -->
+    <section id="projects-section" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Project Card Example -->
+      <div class="bg-[#1e1e2f] rounded-xl shadow-lg p-4">
+        <img src="./assets/images/projects/aritmatika.png" alt="Aritmatika Solver" class="rounded-md mb-4" />
+        <h3 class="text-lg font-semibold">Aritmatika Solver</h3>
+        <p class="text-sm text-gray-400 mb-4">Program ini dirancang untuk mempermudah pengguna dalam menyelesaikan soal-soal Aritmatika secara otomatis.</p>
+        <div class="flex justify-between text-sm">
+          <a href="#" class="text-blue-400 hover:underline">Live Demo ↗</a>
+          <a href="#" class="text-gray-300 hover:underline">Details →</a>
+        </div>
+      </div>
+
+      <div class="bg-[#1e1e2f] rounded-xl shadow-lg p-4">
+        <img src="./assets/images/projects/autochat.png" alt="AutoChat Discord" class="rounded-md mb-4" />
+        <h3 class="text-lg font-semibold">AutoChat-Discord</h3>
+        <p class="text-sm text-gray-400 mb-4">Solusi otomatisasi pesan ke saluran Discord secara terjadwal.</p>
+        <div class="flex justify-between text-sm">
+          <a href="#" class="text-blue-400 hover:underline">Live Demo ↗</a>
+          <a href="#" class="text-gray-300 hover:underline">Details →</a>
+        </div>
+      </div>
+
+      <div class="bg-[#1e1e2f] rounded-xl shadow-lg p-4">
+        <img src="./assets/images/projects/catatan.png" alt="Buku Catatan" class="rounded-md mb-4" />
+        <h3 class="text-lg font-semibold">Buku Catatan</h3>
+        <p class="text-sm text-gray-400 mb-4">Website untuk menyimpan, mengelola, dan membuat catatan online.</p>
+        <div class="flex justify-between text-sm">
+          <a href="#" class="text-blue-400 hover:underline">Live Demo ↗</a>
+          <a href="#" class="text-gray-300 hover:underline">Details →</a>
+        </div>
+      </div>
+
+      <div class="bg-[#1e1e2f] rounded-xl shadow-lg p-4">
+        <img src="./assets/images/projects/growtopia.png" alt="Growtopia Calculator" class="rounded-md mb-4" />
+        <h3 class="text-lg font-semibold">Growtopia-Calculator</h3>
+        <p class="text-sm text-gray-400 mb-4">Membantu pemain menghitung keuntungan dari penjualan surgery shop Growtopia.</p>
+        <div class="flex justify-between text-sm">
+          <a href="#" class="text-blue-400 hover:underline">Live Demo ↗</a>
+          <a href="#" class="text-gray-300 hover:underline">Details →</a>
+        </div>
+      </div>
+
+      <div class="bg-[#1e1e2f] rounded-xl shadow-lg p-4">
+        <img src="./assets/images/projects/itsupport.png" alt="IT Support Bekasi" class="rounded-md mb-4" />
+        <h3 class="text-lg font-semibold">IT Support Bekasi</h3>
+        <p class="text-sm text-gray-400 mb-4">Website layanan IT support sekolah untuk guru dan murid.</p>
+        <div class="flex justify-between text-sm">
+          <a href="#" class="text-blue-400 hover:underline">Live Demo ↗</a>
+          <a href="#" class="text-gray-300 hover:underline">Details →</a>
+        </div>
+      </div>
+
+      <div class="bg-[#1e1e2f] rounded-xl shadow-lg p-4">
+        <img src="./assets/images/projects/oprec.png" alt="Oprec 24" class="rounded-md mb-4" />
+        <h3 class="text-lg font-semibold">Oprec 24</h3>
+        <p class="text-sm text-gray-400 mb-4">Website organisasi untuk rekrutmen, deskripsi program, dan galeri kegiatan.</p>
+        <div class="flex justify-between text-sm">
+          <a href="#" class="text-blue-400 hover:underline">Live Demo ↗</a>
+          <a href="#" class="text-gray-300 hover:underline">Details →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates-section" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-[#1e1e2f] rounded-lg p-4 shadow-lg">
+        <img src="./assets/images/Data Quality with python for beginner.png" alt="Data Quality with Python" class="rounded-md" />
+      </div>
+      <div class="bg-[#1e1e2f] rounded-lg p-4 shadow-lg">
+        <img src="./assets/images/Fundamental SQL using select statement.png" alt="Fundamental SQL" class="rounded-md" />
+      </div>
+      <div class="bg-[#1e1e2f] rounded-lg p-4 shadow-lg">
+        <img src="./assets/images/intro_to_Data_Anlaytics.png" alt="Intro to Data Analytics - RevoU" class="rounded-md" />
+      </div>
+      <div class="bg-[#1e1e2f] rounded-lg p-4 shadow-lg">
+        <img src="./assets/images/Python for data profesional beginner - part1.png" alt="Python_for_data_profesional_beginner" class="rounded-md" />
+      </div>
+      <div class="bg-[#1e1e2f] rounded-lg p-4 shadow-lg">
+        <img src="./assets/images/python_fundamental_for_data_science.png" alt="python_fundamental_for_data_science" class="rounded-md" />
+      </div>
+    </section>
